@@ -23,12 +23,14 @@ soup = BeautifulSoup(content, "html.parser")
 #     # print(link.find(name='a').get('href'))
 #     # print(link)
 #     print(link)
-
+link_list=[]
+price_list=[]
+address_list=[]
 for link in soup.find_all('li',class_='ListItem-c11n-8-84-3-StyledListCardWrapper'):
-    print(link.find(name='a').get('href'))
-    print(link.find('span').getText(strip=True).strip('+/mo 1 bd'))
-    print(link.find('address').getText(strip=True))
+    link_list.append(link.find(name='a').get('href'))
+    price_list.append(link.find('span').getText(strip=True).strip('+/mo 1 bd'))
+    address_list.append(link.find('address').getText(strip=True))
     
-
+print(len(link_list), len(price_list), len(address_list))
 
 
