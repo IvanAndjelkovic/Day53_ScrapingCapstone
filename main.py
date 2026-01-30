@@ -26,7 +26,9 @@ soup = BeautifulSoup(content, "html.parser")
 
 for link in soup.find_all('li',class_='ListItem-c11n-8-84-3-StyledListCardWrapper'):
     print(link.find(name='a').get('href'))
-    print(link.find('span').getText())
+    print(link.find('span').getText(strip=True).strip('+/mo 1 bd'))
+    print(link.find('address').getText(strip=True))
+    
 
 
 
