@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
-from selenium import webdrive
-from selenium.webdriver.common.by import By 
+# from selenium import webdrive
+# from selenium.webdriver.common.by import By 
 
 
 url_google_form = 'https://docs.google.com/forms/d/e/1FAIpQLScaD7aQQqC_-SkGJwkaCTHhHIHTnMS-jge86wIFCfd8MWkmfA/viewform'
@@ -12,6 +12,7 @@ def search_flats():
     response = requests.get(url_zilo_clone)
 
     content = response.text
+    soup = BeautifulSoup(content,'html.parser')
 
     link_list=[]
     price_list=[]
@@ -23,8 +24,9 @@ def search_flats():
 
     return link_list, price_list, address_list
 
-search_flats()
-        
+link_list, price_list, address_list = search_flats()
+print(link_list)
+
 
 
 
