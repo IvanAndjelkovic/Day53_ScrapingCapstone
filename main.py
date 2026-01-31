@@ -40,7 +40,14 @@ def fill_form(link_list, price_list, address_list):
     link_input = driver.find_element(By.XPATH, input_link_path)
     submit = driver.find_element(By.XPATH, submit_path)
 
-    
+
+
+    address_input.send_keys("misdfa")
+    price_input.send_keys("price")
+    link_input.send_keys("link")
+    submit.click()
+
+
 
 
 
