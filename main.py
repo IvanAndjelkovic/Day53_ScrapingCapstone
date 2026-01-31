@@ -1,11 +1,17 @@
 from bs4 import BeautifulSoup
 import requests
-# from selenium import webdrive
-# from selenium.webdriver.common.by import By 
+from selenium import webdrive
+from selenium.webdriver.common.by import By 
 
 
 url_google_form = 'https://docs.google.com/forms/d/e/1FAIpQLScaD7aQQqC_-SkGJwkaCTHhHIHTnMS-jge86wIFCfd8MWkmfA/viewform'
 url_zilo_clone = "https://appbrewery.github.io/Zillow-Clone/"
+input_address = '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input'
+input_price = '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input'
+input_link = '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input'
+submit_path='//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span/span'
+
+
 
 def search_flats():
 
@@ -24,8 +30,15 @@ def search_flats():
 
     return link_list, price_list, address_list
 
-link_list, price_list, address_list = search_flats()
-print(link_list)
+def fill_form(link_list, price_list, address_list):
+    driver = webdriver.chrome()
+    driver.get(url_google_form)
+
+
+
+
+# link_list, price_list, address_list = search_flats()
+# print(link_list)
 
 
 
